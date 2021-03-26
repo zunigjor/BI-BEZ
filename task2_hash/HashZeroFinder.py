@@ -27,7 +27,7 @@ def read_input_arguments():
     if not input_arguments[1].isnumeric():  # isnumeric() returns true when >= 0
         print("Argument not a valid int.")
         exit(1)
-    if input_arguments[1] > 384:
+    if int(input_arguments[1]) > 384:
         print("Argument too big. Max number of zero bits is 384.")
         exit(1)
     return int(input_arguments[1])
