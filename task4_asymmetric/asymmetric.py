@@ -51,8 +51,6 @@ def encrypt(public_RSA_key_file_name, input_file_name, output_file_name, secret_
                                                                 algorithm=hashes.SHA256(),
                                                                 label=None))
     # ---------------- write enc_secret_key ---------------- #
-    print(f"key_enc: {encrypted_secret_key}")
-    print(f"size: {len(encrypted_secret_key)}")
     file_out.write(encrypted_secret_key)
     # ---------------- write initialization_vector ---------------- #
     file_out.write(initialization_vector)
@@ -88,7 +86,6 @@ def decrypt(private_RSA_key_file_name, input_file_name, output_file_name):
             exit(1)
     # ---------------- calculate number of bytes to read encrypted key ---------------- #
     key_bytes_size = int(private_key.key_size / 8)
-    print(f"bsize: {key_bytes_size}")
     # ---------------- open required files ---------------- #
     try:
         file_in, file_out = open_files(input_file_name, output_file_name)
